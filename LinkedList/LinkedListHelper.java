@@ -69,7 +69,10 @@ public class LinkedListHelper<T1> {
 
 		@Override
 		public boolean hasNext() {
-			if (Ref.getNext() != null)
+		
+			if(Ref==null)
+				return false;
+			else if (Ref.getNext() != null)
 				return true;
 			else
 				return false;

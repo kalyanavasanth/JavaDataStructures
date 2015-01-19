@@ -1,7 +1,5 @@
 package LinkedList;
 
-import java.util.NoSuchElementException;
-
 /**
  * @author SESA366034
  *
@@ -23,7 +21,7 @@ public class Queue<T1> extends LinkedListHelper<T1>{
 	public void dequeue()        //remove element from first(Dequeue)
 	{
 		if(list.isEmpty()){
-			throw new NoSuchElementException("Queue is empty");
+			System.out.println("Queue is empty");
 		}
 		list.DeleteAtFirst();
 	}
@@ -46,7 +44,7 @@ public class Queue<T1> extends LinkedListHelper<T1>{
 		}
 		else{
 		T1 temp=iterator.getValue();
-		DeleteAtFirst();
+		list.DeleteAtFirst();
 		return temp;
 		}
 	}

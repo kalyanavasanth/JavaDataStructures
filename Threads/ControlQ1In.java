@@ -1,5 +1,7 @@
 package Threads;
+
 import LinkedList.*;
+
 /**
  * @author SESA366034 Thread to control creation and insertion of packets
  */
@@ -25,7 +27,6 @@ public class ControlQ1In extends Thread {
 			}
 		} catch (InterruptedException e) {
 			System.err.println("Thread Interrupted");
-
 		}
 	}
 
