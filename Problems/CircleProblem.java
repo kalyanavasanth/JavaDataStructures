@@ -1,5 +1,9 @@
 package Problems;
 import LinkedList.*;
+/**
+ * @author SESA366034
+ *
+ */
 public class CircleProblem {
 	Queue<Integer> qu = new Queue<Integer>();
 	public void process(int number_of_elements, int step_size) {
