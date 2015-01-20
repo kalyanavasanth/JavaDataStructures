@@ -69,7 +69,7 @@ public class InsecureLinkedListHelper<T1> {
 		
 			if(Ref==null)
 				return false;
-			else if (Ref.getNext() != null)
+			if (Ref.getNext() != null)
 				return true;
 			else
 				return false;
@@ -100,6 +100,11 @@ public class InsecureLinkedListHelper<T1> {
 		public T getValue() {
 			// TODO Auto-generated method stub
 			return (T) Ref.getData();
+		}
+
+		@Override
+		public InsecureLinkedListHelper<T>.Node getCurrent() {
+			return (InsecureLinkedListHelper<T>.Node)Ref;
 		}
 
 	}

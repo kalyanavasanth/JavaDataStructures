@@ -12,4 +12,9 @@ public interface CustomizedIterator<T1> extends Iterator<T1> {
 	 * @return T1 is the value stored in the node pointed by iterator
 	 */
 	public T1 getValue();
+	
+	/**
+	 * Return object pointed by the iterator
+	 */
+	public InsecureLinkedListHelper<T1>.Node getCurrent();
 }
