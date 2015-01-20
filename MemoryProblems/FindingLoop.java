@@ -28,7 +28,7 @@ public class FindingLoop<T1> {
 	public boolean CheckForLoop(){
 		CustomizedIterator<T1> FastIterator=list.iterator();
 		CustomizedIterator<T1> SlowIterator=list.iterator();
-		while(FastIterator.getValue()!=SlowIterator.getValue()){
+		while(!FastIterator.equals(SlowIterator)){
 			FastIterator.iterate(2);
 			SlowIterator.iterate(1);
 			if(!FastIterator.hasNext()||FastIterator==null){

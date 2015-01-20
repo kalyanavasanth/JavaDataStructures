@@ -9,7 +9,7 @@ public static void main(String args[]){
 	list.InsertAtFirst(400);
 	list.InsertAtFirst(500);
 	FindingLoop<Integer> LoopProb=new FindingLoop<Integer>();
-	//LoopProb.CreateLoopAt(list, 2);
+	LoopProb.CreateLoopAt(list, 2);
 	System.out.println(LoopProb.CheckForLoop());
 }
 }
