@@ -179,6 +179,10 @@ public class InsecureLinkedListHelper<T1> {
 	public Node getHead() {  //return head element
 		return head;
 	}
+	
+	public void setHead(Node _head){
+		head=_head;
+	}
 
 	public int getCount() { //return count of list
 		return count;
