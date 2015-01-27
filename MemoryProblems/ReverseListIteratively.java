@@ -1,46 +1,51 @@
 package MemoryProblems;
 
 /**
- * @author SESA366034 This class is used to reverse a linked list using
- *         iteration
+ * @author SESA366034
+ *This class creates an object, that reverses a linked list iteratively
  */
 public class ReverseListIteratively {
-	private InsecureLinkedListHelper<Integer> list;
-	private InsecureLinkedListHelper<Integer>.Node OldHead, Newhead, traverser,
-			EndPointer, OldEnd;
-
-	public void process(InsecureLinkedListHelper<Integer> _list) {
-		list = _list;
-		OldHead = list.getHead();
-		traverser=list.getHead();
-		EndPointer=list.getHead();
-		OldEnd=list.getHead();
-		while(OldEnd.getNext()!=null){
-			OldEnd=OldEnd.getNext();
+	InsecureLinkedListHelper<Integer> list;
+	InsecureLinkedListHelper<Integer>.Node OldHead,first,second,third,NewHead;
+	
+	/**
+	 * @param _list is the reference of the list to be reversed
+	 */
+	public ReverseListIteratively(InsecureLinkedListHelper<Integer> _list){
+		list=_list;
+		/** traverse till the last element and set it as new head **/
+		NewHead=list.getHead();
+		while(NewHead.getNext()!=null){
+			NewHead=NewHead.getNext();
 		}
-		while (true) {
-			traverser=OldHead;
-			EndPointer=OldHead;
-			if(traverser.getNext().getNext()==null){
+	}
+	/**
+	 * @param _head is the head(OldHead) of the list which is not reversed
+	 */
+	public void process(InsecureLinkedListHelper<Integer>.Node _head){
+		OldHead=_head;
+		first=OldHead;
+		second=first.getNext();
+		
+		while(true){
+			if(second==null){
 				break;
 			}
-			while (EndPointer.getNext() != null) {
-				EndPointer = EndPointer.getNext();
+			third=second.getNext();
+			if(third==null){
+				second.setNode(first);
+				break;
 			}
-			while (traverser.getNext() != EndPointer) {
-				traverser = traverser.getNext();
+			if(third.getNext()==null){
+				second.setNode(first);
+				third.setNode(second);
+				break;
 			}
-			if (traverser.getNext().hashCode() == OldEnd.hashCode()) {
-				Newhead = EndPointer;
-			}
-			EndPointer.setNode(traverser);
-			traverser.setNode(null);
+			second.setNode(first);
+			first=second;
+			second=third;			
 		}
-		EndPointer=EndPointer.getNext();
-		EndPointer.setNode(OldHead);
-		traverser.setNode(null);
-		list.setHead(Newhead);
-		list.printElements();
+		OldHead.setNode(null);
+		list.setHead(NewHead);
 	}
-
 }

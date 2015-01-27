@@ -9,11 +9,11 @@ public class Test {
 		list.InsertAtFirst(400);
 		list.InsertAtFirst(500);
 		list.InsertAtFirst(600);
-		//FindingLoop<Integer> LoopProb = new FindingLoop<Integer>();
-		//LoopProb.CreateLoopAt(list, 2);
-		//System.out.println(LoopProb.CheckForLoop(list));
 		list.printElements();
-		ReverseListIteratively reverse=new ReverseListIteratively();
-		reverse.process(list);
+		ReverseListIteratively reverse=new ReverseListIteratively(list);
+		reverse.process(list.getHead());
+		//ReverseListRecursively recursive=new ReverseListRecursively(list);
+		//recursive.process(list.getHead());
+		list.printElements();
 	}
 }
