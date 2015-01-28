@@ -42,6 +42,7 @@ public class QueueOneOutThread extends Thread {
 						}
 					}
 				}
+				if(QueueOne.getSize()!=0){
 				/* dequeue the packet and check for following conditions */
 
 				packet = QueueOne.dequeueGet();
@@ -66,6 +67,7 @@ public class QueueOneOutThread extends Thread {
 							.GetEligibleTokens(); ++NumOfTokens) {
 						bucket.TransferToken();
 					}
+					packet.SetMovedTime();
 					QueueTwo.enqueue(packet);
 					System.out.println("Packet " + packet.GetID()
 							+ " added to Q2");
@@ -81,6 +83,7 @@ public class QueueOneOutThread extends Thread {
 					packet = null;
 				}
 				sleep(LAMBDA);
+				}
 			}
 		} catch (Exception e) {
 			System.err.println("QueueOneOut Thread Interrupted");
