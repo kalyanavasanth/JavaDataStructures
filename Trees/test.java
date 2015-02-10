@@ -11,8 +11,9 @@ public class test {
 		root.GetLeft().SetRight(tree.CreateNode(5));
 		root.GetRight().SetLeft(tree.CreateNode(6));
 		root.GetRight().SetRight(tree.CreateNode(7));
-		root.GetLeft().GetLeft().SetLeft(tree.CreateNode(8));
-		root.GetLeft().GetLeft().SetRight(tree.CreateNode(9));
-		tree.LevelOrderTraversal();
+		//System.out.println(tree.MaxElement());
+		//System.out.println(tree.MaxRecursive(root));
+		//tree.PreOrder();
+		System.out.println(tree.TreeSize());
 	}
 }

@@ -82,7 +82,6 @@ public class LinkedListHelper<T1> {
 		public T next() {
 			T ob = (T) Ref.getData();
 			Ref = Ref.getNext();
-
 			return ob;
 		}
 

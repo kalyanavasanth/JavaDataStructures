@@ -44,4 +44,22 @@ public class Stack<T1> extends LinkedListHelper<T1>{
 	public int numElements(){  //return number of elements in stack
 		return count;
 	}
+	
+	public T1 getBottom(){
+		if(list.isEmpty()){
+			return null;
+		}
+		else{
+			ite=list.iterator();
+			return ite.getValue();
+		}
+	}
+	public boolean Empty(){
+		if(list.isEmpty()){
+		return true;
+		}
+		else{
+			return false;
+		}
+	}
 }
