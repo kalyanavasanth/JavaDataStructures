@@ -49,4 +49,13 @@ public class Queue<T1> extends LinkedListHelper<T1>{
 		}
 	}
 	
+	public boolean isEmpty(){
+		if(list.isEmpty()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 }

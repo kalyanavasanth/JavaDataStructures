@@ -1,14 +1,14 @@
-package LinkedList;
-public class Stack<T1> extends LinkedListHelper<T1>{
+package MemoryProblems;
+public class InsecureStack<T1> extends InsecureLinkedListHelper<T1>{
 	
 	/**
 	 * @param element is the element to be pushed into the stack
 	 */
 	private int count;
-	LinkedListHelper<T1> list;
+	InsecureLinkedListHelper<T1> list;
 	CustomizedIterator<T1> ite;
-	public Stack(){
-		list=new LinkedListHelper<T1>();
+	public InsecureStack(){
+		list=new InsecureLinkedListHelper<T1>();
 		count=0;
 	}
 	public void push(T1 element){ //to push element to top of the stack   
@@ -45,16 +45,15 @@ public class Stack<T1> extends LinkedListHelper<T1>{
 		return count;
 	}
 	
-	public T1 getBottom(){
+	
+	public InsecureLinkedListHelper<T1>.Node getBottom(){
 		if(list.isEmpty()){
 			return null;
 		}
 		else{
-			ite=list.iterator();
-			return ite.getValue();
+			return list.getHead();
 		}
 	}
-	
 	
 	public boolean Empty(){
 		if(list.isEmpty()){
