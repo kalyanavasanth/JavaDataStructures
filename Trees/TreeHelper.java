@@ -433,5 +433,72 @@ public class TreeHelper<T> {
 		}
 	}
 	
+	public int sumOfTree(Node _root){
+		if(_root==null){
+			return 0;
+		}
+		if(_root.GetLeft()==null && _root.GetRight()==null){
+			return (int)_root.GetData();
+		}
+		int LeftSum=sumOfTree(_root.GetLeft());
+		int RightSum=sumOfTree(_root.GetRight());
+		return (LeftSum+RightSum+(int)_root.GetData());
+	}
 	
+	public boolean isSumTree(Node _root){
+		if(_root==null){
+			return true;
+		}
+		boolean left=isSumTree(_root.GetLeft());
+		boolean right=isSumTree(_root.GetRight());
+		int sum=sumOfTree(_root);
+		if((_root.GetLeft()==null)&&(_root.GetRight()==null)){
+			return true && (left && right);
+		}
+		if(sum==2*((int)_root.GetData())){
+			return true && (left && right);
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public int levelSum(Node _root, int _level){
+			if(_root==null){
+				return 0;
+			}
+			if(_level==1){
+				return (int)_root.GetData();
+			}
+			int leftSum=levelSum(_root.GetLeft(),_level-1);
+			int rightSum=levelSum(_root.GetRight(),_level-1);
+			return (leftSum+rightSum);
+	}
+	
+	public int sumSelectedLevels(Node _root, int initial, int step){
+		int height=TreeHeight(_root);
+		int OddSum=0;
+		for(int level=initial;level<=height;level+=step){
+			OddSum+=levelSum(_root,level);
+		}
+		return OddSum;
+	}
+	
+	public void leftViewUtil(Node _root, int currentLevel, MutableInt _maxLevel){
+		MutableInt maxLevel=_maxLevel;
+		if(_root==null){
+			return;
+		}
+		if(maxLevel.getValue()<currentLevel){
+			System.out.println(_root.GetData());
+			maxLevel.setValue(currentLevel);
+		}
+		leftViewUtil(_root.GetLeft(),currentLevel+1,maxLevel);
+		leftViewUtil(_root.GetRight(),currentLevel+1,maxLevel);		
+	}
+	
+	public void leftView(Node _root){
+		MutableInt maxLevel=new MutableInt(0);
+		leftViewUtil(_root,1,maxLevel);
+	}
 }
